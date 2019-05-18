@@ -1,24 +1,18 @@
-# README
+# Task Manager
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+1 rake db:create
+2 rake db:migrate
+3 for test enviournment bin/rails db:migrate RAILS_ENV=test
+4 rake db:seed # to create Default user, status, label
+5 run test rspec
+6 rails s dor development
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# API Doc!
+- header "Authorization: Authorization key"
+- GET 'api/v1/tasks' # list of all task
+- POST 'api/v1/task' # to create
+ - PUT 'api/v1/task/:id' # to update
+ -
