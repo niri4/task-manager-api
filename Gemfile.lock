@@ -41,6 +41,7 @@ GEM
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
+    bcrypt (3.1.12)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.20.1)
@@ -72,6 +73,7 @@ GEM
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     json (2.2.0)
+    jwt (2.1.0)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -142,6 +144,7 @@ GEM
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
     ruby_dep (1.5.0)
+    simple_command (0.0.9)
     simplecov (0.16.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -175,17 +178,20 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   byebug
   capybara
   database_cleaner
   factory_bot_rails
   faker
+  jwt
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.3.18, < 0.6.0)
   paranoia (~> 2.2)
   puma (~> 3.7)
   rails (~> 5.1.7)
   rspec-rails
+  simple_command
   simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
