@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
-  describe "Task modelunit test" do
-    context "validations" do
+  describe 'Task model unit test' do
+    context 'validations' do
       it 'name validates presence' do
         record = Task.new
         record.name = ''
