@@ -8,9 +8,15 @@ RSpec.describe Api::V1::TasksController, type: :controller do
       name: "task1",
       description: "this is task1",
       due_date: Date.today,
+      label_id: Label.first,
+      status_id: Status.first,
     }
   }
   describe 'Tasks controller Api tests' do
+    before(:each) do
+      auth = JsonWebToken.encode(user_id: user.id)
+      request.headers["Authorization"] = "Authorization " + auth
+    end
     context 'POST #create' do
       context 'Validations' do
         it 'should have name' do

@@ -47,6 +47,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
+    Rails.application.load_seed 
     DatabaseCleaner.strategy = :transaction
   end
 
