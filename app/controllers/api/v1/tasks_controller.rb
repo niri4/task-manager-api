@@ -7,6 +7,7 @@ class Api::V1::TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.user_id = @current_user.id
     if @task.save
       render json: {message: "Task successfully created", task: @task}, status: :created
     else
