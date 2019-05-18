@@ -1,7 +1,7 @@
 class Api::V1::TasksController < ApplicationController
   before_action :get_task, only: [:show, :edit, :update, :destroy]
   def index
-    @task = Task.all
+    @task = Task.where(user_id: @current_user.id)
     render json: {records: @task.to_a},status: :ok
   end
 

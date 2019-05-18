@@ -1,8 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature 'Api for Task list', :type => :feature do
-  let!(:tasks) {create_list(:task, 22)}
-  let!(:user) {create(:user) }
+  let!(:status) {create(:status)}
+  let!(:label) {create(:label)}
+  let!(:user) {create(:user)}
+  let!(:tasks) {create_list(:task, 22, label_id: label.id , status_id: status.id, user_id: user.id )}
   before(:each) do
     auth = JsonWebToken.encode(user_id: user.id)
     page.driver.header "Authorization", "Authorization #{auth}"

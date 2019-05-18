@@ -1,15 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::TasksController, type: :controller do
-  let!(:tasks) {create_list(:task, 22)}
-  let!(:user) { create(:user) }
+  let!(:status) {create(:status)}
+  let!(:label) {create(:label)}
+  let!(:user) {create(:user)}
+  let!(:tasks) {create_list(:task, 22, label_id: label.id , status_id: status.id, user_id: user.id )}
   let!(:task_params) {
     {
       name: "task1",
       description: "this is task1",
       due_date: Date.today,
-      label_id: Label.first,
-      status_id: Status.first,
+      label_id: label.id,
+      status_id: status.id,
     }
   }
   describe 'Tasks controller Api tests' do
