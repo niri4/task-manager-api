@@ -135,7 +135,8 @@ RSpec.describe Api::V1::TasksController, type: :controller do
         get :index, format: :json
         res = JSON.parse(response.body)
         expect(response).to have_http_status(:ok)
-        expect(res['records'].length).to eq(Task.count)
+        expect(res['records'].length).to eq(Task.where(user_id: user.id).count)
+        expect(res['archive_record'].length).to eq(Task.only_deleted.where(user_id: user.id).count)
       end
     end
   end

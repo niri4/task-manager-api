@@ -1,17 +1,17 @@
 class Api::V1::TasksController < ApplicationController
   before_action :get_task, only: [:show, :edit, :update, :destroy]
   def index
-    @task = Task.where(user_id: @current_user.id)
-    render json: {records: @task.to_a},status: :ok
+    task = @current_user.tasks
+    task_with_archieve = @current_user.tasks.only_deleted
+    render json: {records: task.to_a, archive_record: task_with_archieve.to_a}, status: :ok
   end
 
   def create
-    @task = Task.new(task_params)
-    @task.user_id = @current_user.id
-    if @task.save
-      render json: {message: "Task successfully created", task: @task}, status: :created
+    task = @current_user.tasks.new(task_params)
+    if task.save
+      render json: {message: "Task successfully created", task: task}, status: :created
     else
-      render json: {error: @task.errors.messages}, status: :unprocessable_entity
+      render json: {error: task.errors.messages}, status: :unprocessable_entity
     end
   end
 
@@ -60,7 +60,7 @@ class Api::V1::TasksController < ApplicationController
   private
 
   def get_task
-    @task = Task.find_by(params[:id])
+    @task = @current_user.tasks.find_by(params[:id])
   end
 
   def task_params

@@ -9,7 +9,7 @@ RSpec.feature 'Api for Task list', :type => :feature do
     auth = JsonWebToken.encode(user_id: user.id)
     page.driver.header "Authorization", "Authorization #{auth}"
   end
-  scenario 'Task with success status' do
+  scenario 'Task with all stories' do
     page.driver.get('/api/v1/tasks', format: :json )
     res = JSON.parse(page.driver.response.body)
     expect(page.driver.status_code).to eq(200)
