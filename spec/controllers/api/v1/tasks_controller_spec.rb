@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::TasksController, type: :controller do
-  let!(:status) {create(:status)}
-  let!(:label) {create(:label)}
   let!(:user) {create(:user)}
+  let!(:label) {create(:label, user_id: user.id)}
+  let!(:status) {create(:status, user_id: user.id)}
   let!(:tasks) {create_list(:task, 22, label_id: label.id , status_id: status.id, user_id: user.id )}
   let!(:task_params) {
     {

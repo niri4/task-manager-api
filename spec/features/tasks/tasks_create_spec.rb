@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.feature 'Api for Task create', :type => :feature do
-  let!(:status) {create(:status)}
-  let!(:label) {create(:label)}
   let!(:user) {create(:user)}
+  let!(:label) {create(:label, user_id: user.id)}
+  let!(:status) {create(:status, user_id: user.id)}
   let!(:task_params) {
     {
       name: "task1",
