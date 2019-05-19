@@ -1,5 +1,5 @@
 # Task Manager
-
+[![Build Status](https://travis-ci.org/niri4/task-manager-api.svg?branch=master)](https://travis-ci.org/niri4/task-manager-api)
 
 
 1 rake db:create
