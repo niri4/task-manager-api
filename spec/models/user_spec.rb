@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
         expect(record.errors[:email]).to include("can't be blank")
       end
 
-      it 'email uniqueness presence' do
+      it 'email should be unique' do
         record = User.new
         record.email = 'admin@track.com'
         record.name = 'admin'
