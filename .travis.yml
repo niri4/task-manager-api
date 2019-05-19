@@ -23,6 +23,7 @@ before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - mysql -e 'CREATE DATABASE task_manager_test;'
+  - sudo service mysql restart
 
 # 4. OPTIONAL Only customize the `script` option if needed.
 
