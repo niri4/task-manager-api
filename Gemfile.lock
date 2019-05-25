@@ -122,6 +122,7 @@ GEM
       json
       websocket (~> 1.0)
     rack (2.0.7)
+    rack-cors (1.0.3)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.1.7)
@@ -227,6 +228,7 @@ DEPENDENCIES
   mysql2 (>= 0.3.18, < 0.6.0)
   paranoia (~> 2.2)
   puma (~> 3.7)
+  rack-cors
   rails (~> 5.1.7)
   rspec-rails
   simple_command
